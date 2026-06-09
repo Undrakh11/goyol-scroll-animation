@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Goyol Cashmere Scroll Animation</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    .goyol-history {
+      position: relative;
+      width: 100%;
+      background: #111;
+    }
+
+    .history-step {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
+      padding: 80px 8%;
+      position: sticky;
+      top: 0;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .history-image {
+      width: 100%;
+      height: 70vh;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+    }
+
+    .history-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      animation: slowZoom 8s ease-in-out infinite alternate;
+    }
+
+    .history-text {
+      max-width: 560px;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1.2s ease forwards;
+    }
+
+    .history-kicker {
+      font-size: 14px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #c8a96a;
+      margin-bottom: 16px;
+    }
+
+    .history-text h2 {
+      font-size: clamp(34px, 5vw, 72px);
+      line-height: 0.95;
+      margin: 0 0 24px;
+      font-weight: 500;
+    }
+
+    .history-text p {
+      font-size: clamp(16px, 1.4vw, 20px);
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.78);
+      margin: 0;
+    }
+
+    .step-1 {
+      z-index: 1;
+    }
+
+    .step-2 {
+      z-index: 2;
+      background: #171514;
+    }
+
+    .step-3 {
+      z-index: 3;
+      background: #1d1a17;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slowZoom {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(1.08);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .history-step {
+        grid-template-columns: 1fr;
+        padding: 56px 20px;
+      }
+
+      .history-image {
+        height: 48vh;
+      }
+
+      .history-text h2 {
+        font-size: 38px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="goyol-history">
+
+    <div class="history-step step-1">
+      <div class="history-image">
+        <img src="https://cdn.cody.mn/img/440606/0x0/DSC09711.jpg?h=a279076b3b0a44ce92b6e3eec37f7f18b4d65a00" alt="Goyol Cashmere">
+      </div>
+
+      <div class="history-text">
+        <div class="history-kicker">Brand History</div>
+        <h2>Гоёл Кашмерийн түүх</h2>
+        <p>
+          Монгол ноолуурын байгалийн тансаг ширхэгт, ур чадвар, технологийн дэвшил,
+          бүтээлч сэтгэлгээг нэгтгэн Гоёл Кашмер өөрийн түүхийг бүтээсээр байна.
+        </p>
+      </div>
+    </div>
+
+    <div class="history-step step-2">
+      <div class="history-image">
+        <img src="https://cdn.cody.mn/img/440606/0x0/DSC09711.jpg?h=a279076b3b0a44ce92b6e3eec37f7f18b4d65a00" alt="Cashmere Craft">
+      </div>
+
+      <div class="history-text">
+        <div class="history-kicker">Craftsmanship</div>
+        <h2>Ур чадвар ба чанар</h2>
+        <p>
+          Бүтээгдэхүүн бүрт нарийн хийц, зөөлөн мэдрэмж, өдөр тутам өмсөхөд тохиромжтой
+          минимал тансаг хэв маягийг шингээдэг.
+        </p>
+      </div>
+    </div>
+
+    <div class="history-step step-3">
+      <div class="history-image">
+        <img src="https://cdn.cody.mn/img/440606/0x0/DSC09711.jpg?h=a279076b3b0a44ce92b6e3eec37f7f18b4d65a00" alt="Modern Cashmere">
+      </div>
+
+      <div class="history-text">
+        <div class="history-kicker">Modern Legacy</div>
+        <h2>Орчин үеийн өв</h2>
+        <p>
+          Байгалийн тансаг ширхэгтийг орчин үеийн загвар, технологитой хослуулж,
+          Монгол ноолуурын үнэ цэнийг дэлхийд хүргэнэ.
+        </p>
+      </div>
+    </div>
+
+  </section>
+</body>
+</html>
