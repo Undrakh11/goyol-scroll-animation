@@ -3,182 +3,382 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Goyol Cashmere History</title>
 
-  <title>Goyol Cashmere Scroll Animation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     html,
     body {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: #fff;
-    }
-
-    .goyol-history {
-      position: relative;
       width: 100%;
-      background: #111;
+      background: #fff;
+      font-family: 'Manrope', Arial, sans-serif;
     }
 
-    .history-step {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 40px;
-      padding: 80px 8%;
+    #ghx-final {
+      position: relative;
+      height: 520vh;
+      background: #fff;
+      font-family: 'Manrope', Arial, sans-serif;
+      view-timeline-name: --ghxFinal;
+      view-timeline-axis: block;
+    }
+
+    #ghx-final * {
+      box-sizing: border-box;
+    }
+
+    #ghx-final-pin {
       position: sticky;
       top: 0;
+      height: 100vh;
+      display: flex;
       overflow: hidden;
-      background: #111;
+      background: #fff;
     }
 
-    .history-image {
-      width: 100%;
-      height: 70vh;
-      border-radius: 28px;
+    #ghx-final-imgs {
+      position: relative;
+      width: 58%;
+      height: 100%;
       overflow: hidden;
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+      background: #0f0d0a;
+      flex-shrink: 0;
     }
 
-    .history-image img {
+    #ghx-final-txts {
+      position: relative;
+      width: 42%;
+      height: 100%;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .ghx-final-img,
+    .ghx-final-text {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      animation-duration: 1s;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+      animation-timeline: --ghxFinal;
+      animation-range: cover 0% cover 100%;
+    }
+
+    .ghx-final-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-      animation: slowZoom 8s ease-in-out infinite alternate;
+      transform: scale(1.03);
     }
 
-    .history-text {
-      max-width: 560px;
-      opacity: 0;
-      transform: translateY(40px);
-      animation: fadeUp 1.2s ease forwards;
+    .ghx-final-blank {
+      background: linear-gradient(150deg, #17140e 0%, #261e14 55%, #17140e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .history-kicker {
-      font-size: 14px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: #c8a96a;
-      margin-bottom: 16px;
+    .ghx-final-blank em {
+      font-style: normal;
+      font-size: clamp(80px, 12vw, 150px);
+      font-weight: 200;
+      letter-spacing: -4px;
+      color: rgba(154, 122, 82, 0.18);
     }
 
-    .history-text h2 {
-      font-size: clamp(34px, 5vw, 72px);
-      line-height: 0.95;
-      margin: 0 0 24px;
+    .ghx-final-text {
+      display: flex;
+      align-items: center;
+      padding: 0 68px;
+      transform: translateY(48px);
+      filter: blur(6px);
+    }
+
+    .ghx-final-inner {
+      max-width: 430px;
+    }
+
+    .ghx-final-bar {
+      width: 26px;
+      height: 1px;
+      background: #9a7a52;
+      margin-bottom: 26px;
+    }
+
+    .ghx-final-year {
+      font-size: 11px;
       font-weight: 500;
+      letter-spacing: 5px;
+      color: #9a7a52;
+      margin: 0 0 13px;
     }
 
-    .history-text p {
-      font-size: clamp(16px, 1.4vw, 20px);
-      line-height: 1.7;
-      color: rgba(255, 255, 255, 0.78);
+    .ghx-final-title {
+      margin: 0 0 20px;
+      font-size: clamp(17px, 1.45vw, 23px);
+      font-weight: 650;
+      line-height: 1.22;
+      color: #111;
+      text-transform: uppercase;
+    }
+
+    .ghx-final-p {
+      font-size: 13.5px;
+      line-height: 1.85;
+      color: #444;
       margin: 0;
     }
 
-    .step-1 {
-      z-index: 1;
+    .ghx-final-img:nth-child(1) { animation-name: ghxImg1; }
+    .ghx-final-img:nth-child(2) { animation-name: ghxImg2; }
+    .ghx-final-img:nth-child(3) { animation-name: ghxImg3; }
+    .ghx-final-img:nth-child(4) { animation-name: ghxImg4; }
+    .ghx-final-img:nth-child(5) { animation-name: ghxImg5; }
+
+    .ghx-final-text:nth-child(1) { animation-name: ghxTxt1; }
+    .ghx-final-text:nth-child(2) { animation-name: ghxTxt2; }
+    .ghx-final-text:nth-child(3) { animation-name: ghxTxt3; }
+    .ghx-final-text:nth-child(4) { animation-name: ghxTxt4; }
+    .ghx-final-text:nth-child(5) { animation-name: ghxTxt5; }
+
+    @keyframes ghxImg1 {
+      0%, 18% { opacity: 1; }
+      22%, 100% { opacity: 0; }
     }
 
-    .step-2 {
-      z-index: 2;
-      background: #171514;
+    @keyframes ghxImg2 {
+      0%, 18% { opacity: 0; }
+      22%, 38% { opacity: 1; }
+      42%, 100% { opacity: 0; }
     }
 
-    .step-3 {
-      z-index: 3;
-      background: #1d1a17;
+    @keyframes ghxImg3 {
+      0%, 38% { opacity: 0; }
+      42%, 58% { opacity: 1; }
+      62%, 100% { opacity: 0; }
     }
 
-    @keyframes fadeUp {
-      to {
+    @keyframes ghxImg4 {
+      0%, 58% { opacity: 0; }
+      62%, 78% { opacity: 1; }
+      82%, 100% { opacity: 0; }
+    }
+
+    @keyframes ghxImg5 {
+      0%, 78% { opacity: 0; }
+      82%, 100% { opacity: 1; }
+    }
+
+    @keyframes ghxTxt1 {
+      0%, 18% {
         opacity: 1;
         transform: translateY(0);
+        filter: blur(0);
+      }
+
+      22%, 100% {
+        opacity: 0;
+        transform: translateY(-48px);
+        filter: blur(6px);
       }
     }
 
-    @keyframes slowZoom {
-      from {
-        transform: scale(1);
+    @keyframes ghxTxt2 {
+      0%, 18% {
+        opacity: 0;
+        transform: translateY(48px);
+        filter: blur(6px);
       }
-      to {
-        transform: scale(1.08);
+
+      22%, 38% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+
+      42%, 100% {
+        opacity: 0;
+        transform: translateY(-48px);
+        filter: blur(6px);
       }
     }
 
-    @media (max-width: 768px) {
-      .history-step {
-        grid-template-columns: 1fr;
-        padding: 56px 20px;
+    @keyframes ghxTxt3 {
+      0%, 38% {
+        opacity: 0;
+        transform: translateY(48px);
+        filter: blur(6px);
       }
 
-      .history-image {
-        height: 48vh;
+      42%, 58% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
       }
 
-      .history-text h2 {
-        font-size: 38px;
+      62%, 100% {
+        opacity: 0;
+        transform: translateY(-48px);
+        filter: blur(6px);
+      }
+    }
+
+    @keyframes ghxTxt4 {
+      0%, 58% {
+        opacity: 0;
+        transform: translateY(48px);
+        filter: blur(6px);
+      }
+
+      62%, 78% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+
+      82%, 100% {
+        opacity: 0;
+        transform: translateY(-48px);
+        filter: blur(6px);
+      }
+    }
+
+    @keyframes ghxTxt5 {
+      0%, 78% {
+        opacity: 0;
+        transform: translateY(48px);
+        filter: blur(6px);
+      }
+
+      82%, 100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    @media (max-width: 800px) {
+      #ghx-final {
+        height: 520vh;
+      }
+
+      #ghx-final-pin {
+        top: 0;
+        height: 100vh;
+        flex-direction: column;
+      }
+
+      #ghx-final-imgs {
+        width: 100%;
+        height: 42vh;
+      }
+
+      #ghx-final-txts {
+        width: 100%;
+        height: 58vh;
+      }
+
+      .ghx-final-text {
+        padding: 28px 32px;
+      }
+
+      .ghx-final-p {
+        font-size: 13px;
+        line-height: 1.75;
       }
     }
   </style>
 </head>
 
 <body>
-  <section class="goyol-history">
+  <section id="ghx-final">
+    <div id="ghx-final-pin">
+      <div id="ghx-final-imgs">
+        <div class="ghx-final-img">
+          <img src="https://cdn.cody.mn/img/440612/0x0/DSC00017.jpg?h=a279076b3b0a44ce92b6e3eec37f7f18b4d65a00" alt="Goyol 2005">
+        </div>
 
-    <div class="history-step step-1">
-      <div class="history-image">
-        <img src="https://cdn.cody.mn/img/440606/0x0/DSC09711.jpg?h=a279076b3b0a44ce92b6e3eec37f7f18b4d65a00" alt="Goyol Cashmere">
+        <div class="ghx-final-img">
+          <img src="https://cdn.cody.mn/img/440613/0x0/DSC00029.jpg?h=a279076b3b0a44ce92b6e3eec37f7f18b4d65a00" alt="Goyol 2010">
+        </div>
+
+        <div class="ghx-final-img">
+          <img src="https://cdn.cody.mn/img/440614/0x0/DSC00041.jpg?h=a279076b3b0a44ce92b6e3eec37f7f18b4d65a00" alt="Goyol 2017">
+        </div>
+
+        <div class="ghx-final-img">
+          <img src="https://cdn.cody.mn/img/440613/0x0/DSC00029.jpg?h=a279076b3b0a44ce92b6e3eec37f7f18b4d65a00" alt="Goyol 2020">
+        </div>
+
+        <div class="ghx-final-img ghx-final-blank">
+          <em>2025</em>
+        </div>
       </div>
 
-      <div class="history-text">
-        <div class="history-kicker">Brand History</div>
-        <h2>Гоёл Кашмерийн түүх</h2>
-        <p>
-          Монгол ноолуурын байгалийн тансаг ширхэгт, ур чадвар, технологийн дэвшил,
-          бүтээлч сэтгэлгээг нэгтгэн Гоёл Кашмер өөрийн түүхийг бүтээсээр байна.
-        </p>
+      <div id="ghx-final-txts">
+        <div class="ghx-final-text">
+          <div class="ghx-final-inner">
+            <div class="ghx-final-bar"></div>
+            <div class="ghx-final-year">2005</div>
+            <h2 class="ghx-final-title">ЭХЛЭЛ</h2>
+            <p class="ghx-final-p">
+              Гоёл Кашмер компанийн үүсэл хөгжил нь хатагтай Бямбахүүгийн Ариунаа болон түүний гэр бүлтэй салшгүй холбоотой. Тэрээр арван зургаан насандаа үндэсний ууган үйлдвэрлэгч Говь ХК-ийн үйлдвэрт оёдолчноор найман жилийн турш ажилласан нь ноолуурын салбар дахь эхлэл болжээ. Чамин тансаг, гоёмсог бүтээл урлах хүсэл эрмэлзэлдээ хөтлөгдөн 2005 онд “Гоёл” нэрийг авч, өөрийн гараар хувцсаа урлаж эхэлсэн түүхтэй.
+            </p>
+          </div>
+        </div>
+
+        <div class="ghx-final-text">
+          <div class="ghx-final-inner">
+            <div class="ghx-final-bar"></div>
+            <div class="ghx-final-year">2010</div>
+            <h2 class="ghx-final-title">ҮЙЛДВЭРЛЭЛИЙН ДАРААГИЙН ШАТ</h2>
+            <p class="ghx-final-p">
+              Хоёр гар сүлжих машинтай, өрхийн үйлдвэрлэл хэлбэрээр эхлэн үйл ажиллагаагаа явуулж ирсэн Гоёл Кашмерийн үйлдвэр аажим аажмаар өргөжин тэлсээр, текстилийн салбартаа дэлхийд тэргүүлэгч Японы Shima Seiki маркийн бүрэн автомат сүлжих машиныг үйлдвэрлэлдээ нэвтрүүлсэн нь үйлдвэрийн хүчин чадал, технологийн дэвшлийг дараагийн шатанд хүргэх томоохон эхлэл болсон билээ.
+            </p>
+          </div>
+        </div>
+
+        <div class="ghx-final-text">
+          <div class="ghx-final-inner">
+            <div class="ghx-final-bar"></div>
+            <div class="ghx-final-year">2017</div>
+            <h2 class="ghx-final-title">МЕНЕЖМЕНТИЙН ТОГТОЛЦООГ СТАНДАРТЖУУЛАВ</h2>
+            <p class="ghx-final-p">
+              Жижиг, дунд бизнесийнхээ тогтвортой хөгжлийг хангахаар бид ISO 9001:2015 олон улсын менежментийн тогтолцоог Английн UKAS байгууллагаар баталгаажуулан, үйл ажиллагаандаа нэвтрүүлэв. Улмаар Гоёл Кашмер компани олон улсад хүлээн зөвшөөрөгдсөн менежментийн тогтолцоо бүхий компани боллоо.
+            </p>
+          </div>
+        </div>
+
+        <div class="ghx-final-text">
+          <div class="ghx-final-inner">
+            <div class="ghx-final-bar"></div>
+            <div class="ghx-final-year">2020</div>
+            <h2 class="ghx-final-title">ХӨГЖЛИЙН ДАРААГИЙН ШАТ</h2>
+            <p class="ghx-final-p">
+              АНУ-ын Засгийн газрын агентлагийн дэргэдэх Хөгжлийн Санхүүгийн Корпораци /DFC/-аас амжилттай санхүүжилт татсан анхны Монгол компани болж, оффис, үйлдвэрийн байр, ажилчдад зориулсан хүүхдийн цэцэрлэг бүхий орон сууцыг ашиглалтад оруулав. Арван таван жилийн дараа ийнхүү анх удаа өөрсдийн гэсэн үйлдвэрийн байртай боллоо.
+            </p>
+          </div>
+        </div>
+
+        <div class="ghx-final-text">
+          <div class="ghx-final-inner">
+            <div class="ghx-final-bar"></div>
+            <div class="ghx-final-year">2025</div>
+            <h2 class="ghx-final-title">ШИНЭ ҮЕ</h2>
+            <p class="ghx-final-p">
+              Үйлдвэрлэлийн хүчин чадал, бизнесийн тулгуур хүчин зүйлсээ төгөлдөржүүлсэн Гоёл Кашмер өдгөө илүү нээлттэй, илүү бүтээлчээр хэрэглэгчдэдээ хүрч, монгол ноолуурын үнэ цэн, соёл уламжлалынхаа гайхам тансагийг дэлхийд таниулах алсын хараатай шинэ үеийн хөгжлийн замналаа бичиж байна.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="history-step step-2">
-      <div class="history-image">
-        <img src="https://cdn.cody.mn/img/440606/0x0/DSC09711.jpg?h=a279076b3b0a44ce92b6e3eec37f7f18b4d65a00" alt="Cashmere Craft">
-      </div>
-
-      <div class="history-text">
-        <div class="history-kicker">Craftsmanship</div>
-        <h2>Ур чадвар ба чанар</h2>
-        <p>
-          Бүтээгдэхүүн бүрт нарийн хийц, зөөлөн мэдрэмж, өдөр тутам өмсөхөд тохиромжтой
-          минимал тансаг хэв маягийг шингээдэг.
-        </p>
-      </div>
-    </div>
-
-    <div class="history-step step-3">
-      <div class="history-image">
-        <img src="https://cdn.cody.mn/img/440606/0x0/DSC09711.jpg?h=a279076b3b0a44ce92b6e3eec37f7f18b4d65a00" alt="Modern Cashmere">
-      </div>
-
-      <div class="history-text">
-        <div class="history-kicker">Modern Legacy</div>
-        <h2>Орчин үеийн өв</h2>
-        <p>
-          Байгалийн тансаг ширхэгтийг орчин үеийн загвар, технологитой хослуулж,
-          Монгол ноолуурын үнэ цэнийг дэлхийд хүргэнэ.
-        </p>
-      </div>
-    </div>
-
   </section>
 </body>
 </html>
